@@ -67,6 +67,8 @@ public class LoginTest {
     Thread.sleep(2000);
     Assert.assertEquals(driver.getCurrentUrl(), "https://demo5.cybersoft.edu.vn/register",
         "User was not redirected to the registration page after clicking the register link.");
+    Assert.assertTrue(loginPage.getDisplayedRegister(),
+        "Registration form is not displayed as expected after clicking the register link.");
   }
 
   @Test

@@ -20,6 +20,14 @@ public class LoginPage {
   By toastify = By.xpath("//div[contains(@class, 'Toastify__toast-body')]");
   By registerLink = By.xpath("//a[@href='/register' and text()='Register now ?']");
   By loginLink = By.xpath("//ul[contains(@class,'ul')]//a[@href='/login' and text()='Sign in']");
+  By nameInput = By.id("name");
+  By confirmPasswordInput = By.name("passwordConfirm");
+  By phoneInput = By.id("phone");
+  By birthday = By.id("birthday");
+  By gender_male = By.cssSelector("label[for='male']");
+  By gender_female = By.cssSelector("label[for='female']");
+  By agreeCheckbox = By.id("agree-term");
+  By submitBtn = By.className("btn_register");
 
   public LoginPage(WebDriver driver) {
     this.driver = driver;
@@ -48,6 +56,20 @@ public class LoginPage {
   public boolean getDisplayedLogin() {
     return driver.findElement(emailInput).isDisplayed() && driver.findElement(passwordInput).isDisplayed()
         && driver.findElement(eyeBtn).isDisplayed() && driver.findElement(loginBtn).isDisplayed();
+  }
+
+  public boolean getDisplayedRegister() {
+    return driver.findElement(nameInput).isDisplayed() &&
+        driver.findElement(emailInput).isDisplayed() &&
+        driver.findElement(passwordInput).isDisplayed() &&
+        driver.findElement(eyeBtn).isDisplayed() &&
+        driver.findElement(confirmPasswordInput).isDisplayed() &&
+        driver.findElement(phoneInput).isDisplayed() &&
+        driver.findElement(birthday).isDisplayed() &&
+        driver.findElement(gender_male).isDisplayed() &&
+        driver.findElement(gender_female).isDisplayed() &&
+        driver.findElement(agreeCheckbox).isDisplayed() &&
+        driver.findElement(submitBtn).isDisplayed();
   }
 
   public void setValuePassword(String password) {
